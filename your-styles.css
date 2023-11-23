@@ -300,4 +300,10 @@ body h6 {
   border-right: 2px solid #84cb98;
 }
 
+@media screen and (max-width: 768px) {
+  .title {
+    height: 20vh;
+  }
+}
+
 /*# sourceMappingURL=your-styles.css.map */
