@@ -1,0 +1,303 @@
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+body {
+  /* 先套用 Noto Sans TC 這個 思源黑體 */
+  font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
+}
+body h1 {
+  font-size: 56px;
+}
+body h2 {
+  font-size: 48px;
+}
+body h3 {
+  font-size: 40px;
+}
+body h4 {
+  font-size: 32px;
+  margin: 0;
+}
+body h5 {
+  font-size: 24px;
+  margin: 0;
+}
+body h6 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.title {
+  position: relative;
+  width: 100%;
+  background-color: #262e49;
+  color: white;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title h4 {
+  position: absolute;
+  left: 47px;
+}
+
+.main-page {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.main-page .option {
+  display: flex;
+  color: #bfbfbf;
+}
+.main-page .option h6 {
+  padding-bottom: 16px;
+  margin-right: 20px;
+}
+.main-page .option .active {
+  color: black;
+  border-bottom: 4px solid #262e49;
+}
+.main-page .select-area {
+  display: flex;
+}
+.main-page .select-area .form-select {
+  width: 156px;
+  margin: 16px 20px 16px 0px;
+}
+.main-page .select-area button {
+  width: 88px;
+  height: 35px;
+  padding: 4px, 12px, 4px, 12px;
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  background-color: #262e49;
+  margin: 16px 20px 16px 0px;
+}
+.main-page .main-area .left {
+  justify-content: left;
+}
+.main-page .main-area .left .container {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  margin: 0;
+  padding: 0;
+  border-radius: 8px;
+  background-color: white;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.main-page .main-area .left .container h5 {
+  padding: 20px;
+  height: fit-content;
+}
+.main-page .main-area .left .container .chart-and-label {
+  display: flex;
+  padding: 0;
+}
+.main-page .main-area .left .container .chart-and-label .vote-chart,
+.main-page .main-area .left .container .chart-and-label .vote-chart2 {
+  width: 66%;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main-page .main-area .left .container .chart-and-label .text {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.main-page .main-area .left .container .vote-datas {
+  font-size: 16px;
+  padding: 20px;
+}
+.main-page .main-area .left .container .party-datas {
+  padding: 20px;
+  padding-top: 0;
+  margin: 0;
+}
+.main-page .main-area .left .container .party-datas .party {
+  width: 100%;
+  border: 2px solid purple;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin-top: 20px;
+}
+.main-page .main-area .left .container .party-datas .party .party-number {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-page .main-area .left .container .party-datas .party .name {
+  width: 104px;
+  font-size: 12px;
+}
+.main-page .main-area .left .container .party-datas .party .name .party-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+.main-page .main-area .left .container .party-datas .party .voting-number {
+  font-size: 12px;
+  width: 35%;
+  text-align: end;
+}
+.main-page .main-area .left .container .party-datas .party .voting-number .persentage {
+  font-size: 16px;
+  font-weight: 600;
+}
+.main-page .main-area .left .container .party-datas .party-1 .party-number1 {
+  background-color: #dfa175;
+}
+.main-page .main-area .left .container .party-datas .party-1 .name {
+  border-right: 2px solid #dfa175;
+}
+.main-page .main-area .left .container .party-datas .party-2 .party-number2 {
+  background-color: #8894d8;
+}
+.main-page .main-area .left .container .party-datas .party-2 .name {
+  border-right: 2px solid #8894d8;
+}
+.main-page .main-area .left .container .party-datas .party-3 .party-number3 {
+  background-color: #84cb98;
+}
+.main-page .main-area .left .container .party-datas .party-3 .name {
+  border-right: 2px solid #84cb98;
+}
+.main-page .main-area .right {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.main-page .main-area .right .square {
+  width: 260px;
+  border-radius: 8px;
+  background-color: #dee0e4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.main-page .main-area .right .square .text {
+  margin: 20px;
+  font-size: 16px;
+}
+.main-page .main-area .right .square img {
+  width: 50%;
+  margin: 40px 20px 40px 20px;
+}
+.main-page .main-area .right .green-square,
+.main-page .main-area .right .green-square-dist,
+.main-page .main-area .right .green-square-vil {
+  width: 260px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 2px solid #84cb98;
+  background-color: #edf7f0;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 20px;
+}
+.main-page .main-area .right .green-square h6,
+.main-page .main-area .right .green-square-dist h6,
+.main-page .main-area .right .green-square-vil h6 {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+.main-page .main-area .right .green-square .party-datas,
+.main-page .main-area .right .green-square-dist .party-datas,
+.main-page .main-area .right .green-square-vil .party-datas {
+  padding: 20px;
+  padding-top: 0;
+  margin: 0;
+}
+.main-page .main-area .right .green-square .party-datas .party,
+.main-page .main-area .right .green-square-dist .party-datas .party,
+.main-page .main-area .right .green-square-vil .party-datas .party {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin-top: 20px;
+}
+.main-page .main-area .right .green-square .party-datas .party .party-number,
+.main-page .main-area .right .green-square-dist .party-datas .party .party-number,
+.main-page .main-area .right .green-square-vil .party-datas .party .party-number {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-page .main-area .right .green-square .party-datas .party .name,
+.main-page .main-area .right .green-square-dist .party-datas .party .name,
+.main-page .main-area .right .green-square-vil .party-datas .party .name {
+  width: 104px;
+  font-size: 12px;
+}
+.main-page .main-area .right .green-square .party-datas .party .name .party-title,
+.main-page .main-area .right .green-square-dist .party-datas .party .name .party-title,
+.main-page .main-area .right .green-square-vil .party-datas .party .name .party-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+.main-page .main-area .right .green-square .party-datas .party .voting-number,
+.main-page .main-area .right .green-square-dist .party-datas .party .voting-number,
+.main-page .main-area .right .green-square-vil .party-datas .party .voting-number {
+  font-size: 12px;
+  width: 35%;
+  text-align: end;
+}
+.main-page .main-area .right .green-square .party-datas .party .voting-number .persentage,
+.main-page .main-area .right .green-square-dist .party-datas .party .voting-number .persentage,
+.main-page .main-area .right .green-square-vil .party-datas .party .voting-number .persentage {
+  font-size: 16px;
+  font-weight: 600;
+}
+.main-page .main-area .right .green-square .party-datas .party-1 .party-number1,
+.main-page .main-area .right .green-square-dist .party-datas .party-1 .party-number1,
+.main-page .main-area .right .green-square-vil .party-datas .party-1 .party-number1 {
+  background-color: #dfa175;
+}
+.main-page .main-area .right .green-square .party-datas .party-1 .name,
+.main-page .main-area .right .green-square-dist .party-datas .party-1 .name,
+.main-page .main-area .right .green-square-vil .party-datas .party-1 .name {
+  border-right: 2px solid #dfa175;
+}
+.main-page .main-area .right .green-square .party-datas .party-2 .party-number2,
+.main-page .main-area .right .green-square-dist .party-datas .party-2 .party-number2,
+.main-page .main-area .right .green-square-vil .party-datas .party-2 .party-number2 {
+  background-color: #8894d8;
+}
+.main-page .main-area .right .green-square .party-datas .party-2 .name,
+.main-page .main-area .right .green-square-dist .party-datas .party-2 .name,
+.main-page .main-area .right .green-square-vil .party-datas .party-2 .name {
+  border-right: 2px solid #8894d8;
+}
+.main-page .main-area .right .green-square .party-datas .party-3 .party-number3,
+.main-page .main-area .right .green-square-dist .party-datas .party-3 .party-number3,
+.main-page .main-area .right .green-square-vil .party-datas .party-3 .party-number3 {
+  background-color: #84cb98;
+}
+.main-page .main-area .right .green-square .party-datas .party-3 .name,
+.main-page .main-area .right .green-square-dist .party-datas .party-3 .name,
+.main-page .main-area .right .green-square-vil .party-datas .party-3 .name {
+  border-right: 2px solid #84cb98;
+}
+
+/*# sourceMappingURL=your-styles.css.map */

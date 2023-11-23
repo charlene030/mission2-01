@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2020總統選舉即時開票地圖</title>
+    <meta
+      name="description"
+      content="map created using amCharts pixel map generator"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="your-styles.css" />
+
+    <!--
+			This map was created using Pixel Map Generator by amCharts and is licensed under the Creative Commons Attribution 4.0 International License.
+			You may use this map the way you see fit as long as proper attribution to the name of amCharts is given in the form of link to https://pixelmap.amcharts.com/
+			To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
+
+			If you would like to use this map without any attribution, you can acquire a commercial license for the JavaScript Maps - a tool that was used to produce this map.
+			To do so, visit amCharts Online Store: https://www.amcharts.com/online-store/
+		-->
+
+    <!-- amCharts javascript sources -->
+    <script
+      type="text/javascript"
+      src="https://www.amcharts.com/lib/3/ammap.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://www.amcharts.com/lib/3/maps/js/taiwanLow.js"
+    ></script>
+
+    <!-- amCharts javascript code -->
+    <script type="text/javascript">
+      //地區顏色表 綠色(民進):#84CB98  藍色(國民):#8894D8 橘色(親民):#DFA175
+      AmCharts.makeChart("map", {
+        type: "map",
+        pathToImages: "http://www.amcharts.com/lib/3/images/",
+        addClassNames: true,
+        fontSize: 15,
+        color: "#FFFFFF",
+        projection: "mercator",
+        backgroundAlpha: 1,
+        backgroundColor: "rgba(80,80,80,1)", //之後改成#F5F5F5
+        dataProvider: {
+          map: "taiwanLow",
+          getAreasFromMap: true,
+          images: [
+            {
+              top: 40,
+              left: 60,
+              width: 80,
+              height: 40,
+              pixelMapperLogo: true,
+              imageURL: "http://pixelmap.amcharts.com/static/img/logo.svg",
+              url: "http://www.amcharts.com",
+            },
+            {
+              selectable: true,
+              longitude: 121.4863,
+              latitude: 24.4595,
+              label: "",
+              labelPosition: "right",
+              labelColor: "rgba(238,231,235,1)",
+              labelRollOverColor: "#ffffff",
+              labelFontSize: 15,
+            },
+          ],
+          areas: [
+            {
+              id: "TW-NWT",
+              title: "新北市",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-HUA",
+              title: "花蓮縣",
+              color: "#8894D8",
+            },
+            {
+              id: "TW-PEN",
+              title: "澎湖縣",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-KEE",
+              title: "基隆市",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-TPE",
+              title: "臺北市",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-TAO",
+              title: "桃園市",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-HSZ",
+              title: "新竹市",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-HSQ",
+              title: "新竹縣",
+              color: "#8894D8",
+            },
+            {
+              id: "TW-MIA",
+              title: "苗栗縣",
+              color: "#8894D8",
+            },
+            {
+              id: "TW-ILA",
+              title: "宜蘭縣",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-TXG",
+              title: "台中市",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-CHA",
+              title: "彰化縣",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-YUN",
+              title: "雲林縣",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-CYI",
+              title: "嘉義市",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-CYQ",
+              title: "嘉義縣",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-TNN",
+              title: "台南市",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-PIF",
+              title: "屏東縣",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-KHH",
+              title: "高雄市",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-TTT",
+              title: "台東縣",
+              color: "#8894D8",
+            },
+            {
+              id: "TW-NAN",
+              title: "南投縣",
+              color: "#84CB98",
+            },
+            {
+              id: "TW-KIN",
+              title: "Kinmen",
+              color: "#84CB98",
+            },
+          ],
+        },
+        balloon: {
+          horizontalPadding: 15,
+          borderAlpha: 0,
+          borderThickness: 1,
+          verticalPadding: 15,
+        },
+        areasSettings: {
+          color: "rgba(129,129,129,1)",
+          outlineColor: "rgba(80,80,80,1)",
+          rollOverOutlineColor: "rgba(80,80,80,1)",
+          rollOverBrightness: 20,
+          selectedBrightness: -20,
+          selectable: true,
+          unlistedAreasAlpha: 0,
+          unlistedAreasOutlineAlpha: 0,
+        },
+        imagesSettings: {
+          alpha: 1,
+          color: "rgba(129,129,129,1)",
+          outlineAlpha: 0,
+          rollOverOutlineAlpha: 0,
+          outlineColor: "rgba(80,80,80,1)",
+          rollOverBrightness: 20,
+          selectedBrightness: 20,
+          selectable: true,
+        },
+        linesSettings: {
+          color: "rgba(129,129,129,1)",
+          selectable: true,
+          rollOverBrightness: 20,
+          selectedBrightness: 20,
+        },
+        zoomControl: {
+          zoomControlEnabled: true,
+          homeButtonEnabled: false,
+          panControlEnabled: false,
+          right: 38,
+          bottom: 30,
+          minZoomLevel: 0.25,
+          gridHeight: 100,
+          gridAlpha: 0.1,
+          gridBackgroundAlpha: 0,
+          gridColor: "#FFFFFF",
+          draggerAlpha: 1,
+          buttonCornerRadius: 2,
+        },
+        listeners: [
+          {
+            event: "clickMapObject",
+            method: function (event) {
+              // event.mapObject 可以獲取點擊的地圖對象
+              //console.log("我按的是:" + event.mapObject.title);
+              ClickMap(event.mapObject.title);
+              //loadExcel(event.mapObject.title);
+            },
+          },
+        ],
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.28.1/dist/apexcharts.min.js"></script>
+  </head>
+  <body style="margin: 0; background-color: #f5f5f5">
+    <div class="title"><h4>2020 開票地圖</h4></div>
+    <div class="main-page">
+      <div class="option">
+        <h6 class="active">第15任 總統副總統大選</h6>
+        <h6>第10任 立法委員選舉</h6>
+      </div>
+      <div class="select-area">
+        <select
+          class="form-select"
+          id="category1"
+          onchange="loadCategory2Options()"
+        >
+          <option selected>請選擇</option>
+        </select>
+        <select
+          class="form-select"
+          id="category2"
+          onchange="loadCategoryDist()"
+        >
+          <option selected>請選擇</option>
+        </select>
+        <select class="form-select" id="category3">
+          <option selected>請選擇</option>
+        </select>
+        <button onclick="FinishSelect()">搜尋</button>
+        <button onclick="clearSelect()">清除</button>
+      </div>
+      <div class="main-area row">
+        <div class="col-4 left">
+          <div class="container row">
+            <h5 class="col-12">投票概況</h5>
+            <div class="chart-and-label col-12">
+              <div class="vote-chart"></div>
+              <div class="text">
+                <h6>74.9%<br />投票率</h6>
+              </div>
+            </div>
+            <div class="vote-datas col-12">
+              投票數 14,464,571票<br />
+              無效票數 163,631票<br />
+              有效票數 14,300,940票
+            </div>
+            <div class="chart-and-label col-12">
+              <div class="vote-chart2"></div>
+              <div class="text"></div>
+            </div>
+            <div class="party-datas col-12 row">
+              <div class="party party-1 order-3">
+                <div class="party-number party-number1">1</div>
+                <div class="name">
+                  <div class="party-title">親民黨</div>
+                  宋楚瑜｜余湘
+                </div>
+                <div class="voting-number">
+                  <div class="persentage">4.26 %</div>
+                  608,590 票
+                </div>
+              </div>
+              <div class="party party-2 order-2">
+                <div class="party-number party-number2">2</div>
+                <div class="name">
+                  <div class="party-title">中國國民黨</div>
+                  韓國瑜｜張善政
+                </div>
+                <div class="voting-number">
+                  <div class="persentage">38.61 %</div>
+                  5,522,119 票
+                </div>
+              </div>
+              <div class="party party-3 order-1">
+                <div class="party-number party-number3">3</div>
+                <div class="name">
+                  <div class="party-title">民主進步黨</div>
+                  蔡英文｜賴清德
+                </div>
+                <div class="voting-number">
+                  <div class="persentage">57.13 %</div>
+                  8,170,231 票
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 center">
+          <div id="map" style="width: 100%; height: 120vh"></div>
+        </div>
+        <div class="col-4 right">
+          <div class="grey-square">
+            <div class="square">
+              <div class="text">
+                <h6>小提示</h6>
+                點擊選擇縣市、區、村里，可查看選舉結果
+              </div>
+              <img src="hint1.png" />
+            </div>
+            <div class="square">
+              <div class="text">
+                <h6>小提示</h6>
+                點擊地圖查看縣市的選舉結果
+              </div>
+              <img src="hint2.png" />
+            </div>
+          </div>
+
+          <div class="green-square">
+            <h6 id="green-square-city">臺北市</h6>
+            <div class="party-datas col-12 row">
+              <div class="party party-1 party-1-city" id="party-3">
+                <div class="party-number party-number1">1</div>
+                <div class="name">
+                  <div class="party-title">親民黨</div>
+                  宋楚瑜｜余湘
+                </div>
+                <div class="voting-number">
+                  <div class="persentage" id="party1-persent">4.26 %</div>
+                  <span id="green-square-party1-vote"> 608,590 票 </span>
+                </div>
+              </div>
+              <div class="party party-2 party-2-city" id="party-3">
+                <div class="party-number party-number2">2</div>
+                <div class="name">
+                  <div class="party-title">中國國民黨</div>
+                  韓國瑜｜張善政
+                </div>
+                <div class="voting-number">
+                  <div class="persentage" id="party2-persent">38.61 %</div>
+                  <span id="green-square-party2-vote"> 5,522,119 票 </span>
+                </div>
+              </div>
+              <div class="party party-3 party-3-city" id="party-3">
+                <div class="party-number party-number3">3</div>
+                <div class="name">
+                  <div class="party-title">民主進步黨</div>
+                  蔡英文｜賴清德
+                </div>
+                <div class="voting-number">
+                  <div class="persentage" id="party3-persent">57.13 %</div>
+                  <span id="green-square-party3-vote"> 8,170,231 票 </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="green-square-dist">
+            <h6 id="green-square-dist">信義區</h6>
+            <div class="party-datas col-12 row">
+              <div class="party party-1 party-1-dist">
+                <div class="party-number party-number1">1</div>
+                <div class="name">
+                  <div class="party-title">親民黨</div>
+                  宋楚瑜｜余湘
+                </div>
+                <div class="voting-number">
+                  <div class="persentage" id="party1-dist-persent">4.26 %</div>
+                  <span id="green-square-party1-dist-vote"> 608,590 票 </span>
+                </div>
+              </div>
+              <div class="party party-2 party-2-dist">
+                <div class="party-number party-number2">2</div>
+                <div class="name">
+                  <div class="party-title">中國國民黨</div>
+                  韓國瑜｜張善政
+                </div>
+                <div class="voting-number">
+                  <div class="persentage" id="party2-dist-persent">38.61 %</div>
+                  <span id="green-square-party2-dist-vote"> 5,522,119 票 </span>
+                </div>
+              </div>
+              <div class="party party-3 party-3-dist">
+                <div class="party-number party-number3">3</div>
+                <div class="name">
+                  <div class="party-title">民主進步黨</div>
+                  蔡英文｜賴清德
+                </div>
+                <div class="voting-number">
+                  <div class="persentage" id="party3-dist-persent">57.13 %</div>
+                  <span id="green-square-party3-dist-vote"> 8,170,231 票 </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="green-square-vil">
+            <h6 id="green-square-vil">仁壽里</h6>
+            <div class="party-datas col-12 row">
+              <div class="party party-1 party-1-vil">
+                <div class="party-number party-number1">1</div>
+                <div class="name">
+                  <div class="party-title">親民黨</div>
+                  宋楚瑜｜余湘
+                </div>
+                <div class="voting-number">
+                  <div class="persentage" id="party1-vil-persent">4.26 %</div>
+                  <span id="green-square-party1-vil-vote"> 608,590 票 </span>
+                </div>
+              </div>
+              <div class="party party-2 party-2-vil">
+                <div class="party-number party-number2">2</div>
+                <div class="name">
+                  <div class="party-title">中國國民黨</div>
+                  韓國瑜｜張善政
+                </div>
+                <div class="voting-number">
+                  <div class="persentage" id="party2-vil-persent">38.61 %</div>
+                  <span id="green-square-party2-vil-vote"> 5,522,119 票 </span>
+                </div>
+              </div>
+              <div class="party party-3 party-3-vil">
+                <div class="party-number party-number3">3</div>
+                <div class="name">
+                  <div class="party-title">民主進步黨</div>
+                  蔡英文｜賴清德
+                </div>
+                <div class="voting-number">
+                  <div class="persentage" id="party3-vil-persent">57.13 %</div>
+                  <span id="green-square-party3-vil-vote"> 8,170,231 票 </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+    <script>
+      //pie chart
+      var options = {
+        series: [200, 50],
+        fill: {
+          colors: ["#262E49", "#D9D9D9"],
+        },
+        chart: {
+          type: "donut",
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        labels: ["有效票數", "無效票數"],
+        legend: {
+          show: false, // 將此選項設置為 false 以隱藏 legend
+        },
+      };
+      var options2 = {
+        series: [608590, 5522119, 8170231],
+        fill: {
+          colors: ["#DFA175", "#8894D8", "#84CB98"],
+        },
+        chart: {
+          type: "donut",
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        labels: ["親民黨", "中國國民黨", "民主進步黨"],
+        legend: {
+          show: false, // 將此選項設置為 false 以隱藏 legend
+        },
+      };
+
+      var chart = new ApexCharts(
+        document.querySelector(".vote-chart"),
+        options
+      );
+      chart.render();
+      var chart2 = new ApexCharts(
+        document.querySelector(".vote-chart2"),
+        options2
+      );
+      chart2.render();
+    </script>
+    <script>
+      function loadCategory1Options() {
+        var category1Select = document.getElementById("category1");
+
+        // 使用 XMLHttpRequest 或 Fetch API 獲取 JSON 數據
+        var xhr = new XMLHttpRequest();
+        xhr.open(
+          "GET",
+          "https://demeter.5fpro.com/tw/zipcode/cities.json",
+          true
+        );
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var cities = JSON.parse(xhr.responseText);
+
+            // 將城市名稱添加到 category1 的選項中
+
+            cities.forEach(function (city) {
+              var option = document.createElement("option");
+              option.value = city.name;
+              option.textContent = city.name;
+              category1Select.appendChild(option);
+            });
+          }
+        };
+        xhr.send();
+      }
+
+      // 載入區域選項
+      let Category1Value, Category2Value, Category3Value;
+      function loadCategory2Options() {
+        var category1Select = document.getElementById("category1");
+        Category1Value = category1Select.value;
+        var category2Select = document.getElementById("category2");
+
+        // 清空 category2 的選項
+        category2Select.innerHTML = "";
+
+        // 取得 category1 的選擇
+        var selectedCity = category1Select.value;
+
+        // 使用 XMLHttpRequest 或 Fetch API 獲取相應城市的區域 JSON 數據
+        var xhr = new XMLHttpRequest();
+        xhr.open(
+          "GET",
+          "https://demeter.5fpro.com/tw/zipcode/" +
+            encodeURIComponent(selectedCity) +
+            ".json",
+          true
+        );
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var areas = JSON.parse(xhr.responseText);
+
+            // 將區域名稱添加到 category2 的選項中
+            category2Select.innerHTML += `
+        <option selected>請選擇</option>`;
+            areas.forEach(function (area) {
+              var option = document.createElement("option");
+              option.value = area.name;
+              option.textContent = area.name;
+              category2Select.appendChild(option);
+            });
+          }
+        };
+        xhr.send();
+      }
+
+      //載入村里選項
+      async function loadCategoryDist() {
+        var category1Select = document.getElementById("category1");
+        var selectedCity = category1Select.value;
+        var category2Select = document.getElementById("category2");
+        var selectedDist = category2Select.value;
+        var category3Select = document.getElementById("category3");
+        console.log("category3Select:", category3Select);
+
+        // 清空 category3 的選項
+        category3Select.innerHTML = "";
+
+        try {
+          const response = await fetch(
+            `/dataFile/總統-A05-3-候選人得票數一覽表-各村里(${selectedCity}).xls`
+          );
+          const arrayBuffer = await response.arrayBuffer();
+          const data = new Uint8Array(arrayBuffer);
+          const workbook = XLSX.read(data, { type: "array" });
+
+          // 假設工作表的名稱是 Sheet1
+          let i = 7;
+          let j;
+          const sheetName = workbook.SheetNames[0];
+          const sheet = workbook.Sheets[sheetName];
+          console.log(sheet["A" + 171]);
+          console.log(sheet["A" + i].v);
+          console.log("selectedDist:", selectedDist);
+          while (sheet["A" + i] !== undefined) {
+            if (sheet["A" + i].v.replace(/\s/g, "") === selectedDist) {
+              //區域對到了
+              console.log("區域對到了");
+              j = i + 1;
+              category3Select.innerHTML += `
+        <option selected>請選擇</option>`;
+              while (sheet["B" + j] !== undefined && sheet["B" + j].v !== "") {
+                var option = document.createElement("option");
+                option.value = sheet["B" + j].v;
+                option.textContent = sheet["B" + j].v;
+                category3Select.appendChild(option);
+
+                //console.log(sheet["B" + j].v);
+                j++;
+              }
+            }
+            i++;
+          }
+        } catch (error) {
+          console.error("(在載入村里函數)Error loading Excel file:", error);
+        }
+      }
+
+      // 初始化時載入城市選項
+      loadCategory1Options();
+      document.querySelector(".green-square").style.display = "none";
+      document.querySelector(".green-square-dist").style.display = "none";
+      document.querySelector(".green-square-vil").style.display = "none";
+      function FinishSelect() {
+        var category2Select = document.getElementById("category2");
+        Category2Value = category2Select.value;
+        var category3Select = document.getElementById("category3");
+        Category3Value = category3Select.value;
+        if (
+          Category1Value == undefined ||
+          Category2Value == "請選擇" ||
+          Category3Value == "請選擇"
+        ) {
+          alert("請完整輸入要搜尋的地區");
+        } else {
+          loadExcel(Category1Value);
+          loadExcelDist(Category1Value, Category2Value, Category3Value);
+          //console.log(Category1Value, Category2Value);
+          document.querySelector(".green-square").style.display = "block";
+          document.querySelector(".green-square-dist").style.display = "block";
+          document.querySelector(".green-square-vil").style.display = "block";
+          let sq = document.querySelectorAll(".square");
+          sq.forEach((square) => {
+            square.style.display = "none";
+          });
+        }
+      }
+
+      function clearSelect() {
+        const category1Select = document.getElementById("category1");
+        const category2Select = document.getElementById("category2");
+        const category3Select = document.getElementById("category3");
+        // 將選擇重置為預設
+        category1Select.value = "請選擇";
+        category2Select.innerHTML = `
+        <option selected>請選擇</option>`;
+        category3Select.innerHTML = `
+        <option selected>請選擇</option>`;
+      }
+      async function loadExcel(TaiwanTitle) {
+        try {
+          const response = await fetch(
+            "/dataFile/總統-A05-1-候選人得票數一覽表(中　央).xls"
+          );
+          const arrayBuffer = await response.arrayBuffer();
+          const data = new Uint8Array(arrayBuffer);
+          const workbook = XLSX.read(data, { type: "array" });
+
+          // 假設工作表的名稱是 Sheet1
+          const sheetName = workbook.SheetNames[0];
+          const sheet = workbook.Sheets[sheetName];
+
+          // 指定單元格的位置，例如 H23 與 H27
+          //列出所有縣市
+          for (let i = 7; i <= 28; i++) {
+            let cell = sheet["A" + i];
+            let value = cell ? cell.v : undefined;
+
+            if (TaiwanTitle.replace(/\s/g, "") === value.replace(/\s/g, "")) {
+              //有匹配到縣市
+              document.getElementById("green-square-city").innerText =
+                TaiwanTitle.replace(/\s/g, "");
+
+              document.getElementById("green-square-party1-vote").innerText =
+                sheet["B" + i].v + "票";
+              document.getElementById("green-square-party2-vote").innerText =
+                sheet["C" + i].v + "票";
+              document.getElementById("green-square-party3-vote").innerText =
+                sheet["D" + i].v + "票";
+
+              //計算百分比
+              let Party1voteNum = parseInt(
+                sheet["B" + i].v.replace(/,/g, ""),
+                10
+              );
+              let Party2voteNum = parseInt(
+                sheet["C" + i].v.replace(/,/g, ""),
+                10
+              );
+              let Party3voteNum = parseInt(
+                sheet["D" + i].v.replace(/,/g, ""),
+                10
+              );
+              let Party1votePersent = (
+                (Party1voteNum /
+                  (Party1voteNum + Party2voteNum + Party3voteNum)) *
+                100
+              ).toFixed(2);
+              let Party2votePersent = (
+                (Party2voteNum /
+                  (Party1voteNum + Party2voteNum + Party3voteNum)) *
+                100
+              ).toFixed(2);
+              let Party3votePersent = (
+                (Party3voteNum /
+                  (Party1voteNum + Party2voteNum + Party3voteNum)) *
+                100
+              ).toFixed(2);
+
+              document.getElementById("party1-persent").innerText =
+                Party1votePersent + "%";
+              document.getElementById("party2-persent").innerText =
+                Party2votePersent + "%";
+              document.getElementById("party3-persent").innerText =
+                Party3votePersent + "%";
+
+              SortandOrder(Party1voteNum, Party2voteNum, Party3voteNum, "city");
+              //loadExcelDist(TaiwanTitle.replace(/\s/g, ""), ""); 應該不是在這邊load吧?
+              //console.log(TaiwanTitle, "的(1)投票數是", sheet["B" + i].v);
+            }
+
+            //console.log(("A", i, ":", value)[1]);
+          }
+        } catch (error) {
+          console.error("Error loading Excel file:", error);
+        }
+      }
+      async function loadExcelDist(CityTitle, DistTitle, VilTitle) {
+        console.log("CityTitle:" + CityTitle);
+        console.log("DistTitle:" + DistTitle);
+        console.log("VilTitle:" + VilTitle);
+        try {
+          const response = await fetch(
+            `/dataFile/總統-A05-2-候選人得票數一覽表(${encodeURIComponent(
+              CityTitle
+            )}).xls`
+          );
+          const arrayBuffer = await response.arrayBuffer();
+          const data = new Uint8Array(arrayBuffer);
+          const workbook = XLSX.read(data, { type: "array" });
+
+          // 假設工作表的名稱是 Sheet1
+          const sheetName = workbook.SheetNames[0];
+          const sheet = workbook.Sheets[sheetName];
+
+          // 指定單元格的位置，例如 H23 與 H27
+          //列出所有縣市
+          let i = 7;
+          while (sheet["A" + i] && sheet["A" + i].v !== undefined) {
+            //console.log(sheet["A" + i].v);
+            if (sheet["A" + i].v.replace(/\s/g, "") === DistTitle) {
+              //有匹配到區域
+              //console.log(DistTitle, "的(1)票數是", sheet["B" + i].v);
+              //console.log(DistTitle, "的(2)票數是", sheet["C" + i].v);
+              //console.log(DistTitle, "的(3)票數是", sheet["D" + i].v);
+              document.getElementById("green-square-dist").innerText =
+                DistTitle.replace(/\s/g, "");
+              document.getElementById(
+                "green-square-party1-dist-vote"
+              ).innerText = sheet["B" + i].v + "票";
+              document.getElementById(
+                "green-square-party2-dist-vote"
+              ).innerText = sheet["C" + i].v + "票";
+              document.getElementById(
+                "green-square-party3-dist-vote"
+              ).innerText = sheet["D" + i].v + "票";
+              //計算百分比
+              let Party1voteNumDist = parseInt(
+                sheet["B" + i].v.replace(/,/g, ""),
+                10
+              );
+              let Party2voteNumDist = parseInt(
+                sheet["C" + i].v.replace(/,/g, ""),
+                10
+              );
+              let Party3voteNumDist = parseInt(
+                sheet["D" + i].v.replace(/,/g, ""),
+                10
+              );
+              let Party1votePersent = (
+                (Party1voteNumDist /
+                  (Party1voteNumDist + Party2voteNumDist + Party3voteNumDist)) *
+                100
+              ).toFixed(2);
+              let Party2votePersent = (
+                (Party2voteNumDist /
+                  (Party1voteNumDist + Party2voteNumDist + Party3voteNumDist)) *
+                100
+              ).toFixed(2);
+              let Party3votePersent = (
+                (Party3voteNumDist /
+                  (Party1voteNumDist + Party2voteNumDist + Party3voteNumDist)) *
+                100
+              ).toFixed(2);
+
+              document.getElementById("party1-dist-persent").innerText =
+                Party1votePersent + "%";
+              document.getElementById("party2-dist-persent").innerText =
+                Party2votePersent + "%";
+              document.getElementById("party3-dist-persent").innerText =
+                Party3votePersent + "%";
+              SortandOrder(
+                Party1voteNumDist,
+                Party2voteNumDist,
+                Party3voteNumDist,
+                "dist"
+              );
+            }
+            i++;
+          }
+        } catch (error) {
+          console.error("(找Dist資料的)Error loading Excel file:", error);
+        }
+        ///////////////以上為找出Dist的程式碼/////////////////
+        ///////////////以下為找出Vil的程式碼/////////////////
+        try {
+          const response = await fetch(
+            `/dataFile/總統-A05-3-候選人得票數一覽表-各村里(${CityTitle}).xls`
+          );
+          const arrayBuffer = await response.arrayBuffer();
+          const data = new Uint8Array(arrayBuffer);
+          const workbook = XLSX.read(data, { type: "array" });
+
+          // 假設工作表的名稱是 Sheet1
+          i = 7;
+          let j;
+          const sheetName = workbook.SheetNames[0];
+          const sheet = workbook.Sheets[sheetName];
+
+          while (sheet["A" + i] !== undefined) {
+            if (sheet["A" + i].v.replace(/\s/g, "") === DistTitle) {
+              //區域對到了
+              j = i + 1;
+              while (sheet["B" + j] !== undefined && sheet["B" + j].v !== "") {
+                //console.log("在搜尋函數內的輸出");
+                //console.log(sheet["B" + j].v);
+                if (sheet["B" + j].v === VilTitle) {
+                  //console.log("找到囉!", sheet["B" + j].v);
+                  document.getElementById("green-square-vil").innerText =
+                    VilTitle;
+                  document.getElementById(
+                    "green-square-party1-vil-vote"
+                  ).innerText = sheet["C" + j].v + "票";
+                  document.getElementById(
+                    "green-square-party2-vil-vote"
+                  ).innerText = sheet["D" + j].v + "票";
+                  document.getElementById(
+                    "green-square-party3-vil-vote"
+                  ).innerText = sheet["E" + j].v + "票";
+                  //計算百分比
+                  let Party1voteNumVil = parseInt(
+                    sheet["C" + j].v.replace(/,/g, ""),
+                    10
+                  );
+                  let Party2voteNumVil = parseInt(
+                    sheet["D" + j].v.replace(/,/g, ""),
+                    10
+                  );
+                  let Party3voteNumVil = parseInt(
+                    sheet["E" + j].v.replace(/,/g, ""),
+                    10
+                  );
+                  let Party1votePersentVil = (
+                    (Party1voteNumVil /
+                      (Party1voteNumVil +
+                        Party2voteNumVil +
+                        Party3voteNumVil)) *
+                    100
+                  ).toFixed(2);
+                  let Party2votePersentVil = (
+                    (Party2voteNumVil /
+                      (Party1voteNumVil +
+                        Party2voteNumVil +
+                        Party3voteNumVil)) *
+                    100
+                  ).toFixed(2);
+                  let Party3votePersentVil = (
+                    (Party3voteNumVil /
+                      (Party1voteNumVil +
+                        Party2voteNumVil +
+                        Party3voteNumVil)) *
+                    100
+                  ).toFixed(2);
+
+                  document.getElementById("party1-vil-persent").innerText =
+                    Party1votePersentVil + "%";
+                  document.getElementById("party2-vil-persent").innerText =
+                    Party2votePersentVil + "%";
+                  document.getElementById("party3-vil-persent").innerText =
+                    Party3votePersentVil + "%";
+                  SortandOrder(
+                    Party1voteNumVil,
+                    Party2voteNumVil,
+                    Party3voteNumVil,
+                    "vil"
+                  );
+                }
+                j++;
+              }
+            }
+            /* if (sheet["A" + i].v !== "") {
+              console.log(sheet["A" + i].v.replace(/\s/g, ""));
+            }*/
+
+            i++;
+          }
+        } catch (error) {
+          console.error("(找Vil資料的)Error loading Excel file:", error);
+        }
+      }
+      function SortandOrder(num1, num2, num3, method) {
+        let element1, element2, element3;
+        //百分比排序 並設order順序
+        if (method == "city") {
+          element1 = document.querySelector(".party-1-city");
+          element2 = document.querySelector(".party-2-city");
+          element3 = document.querySelector(".party-3-city");
+          const elementsWithPartyClass = document.querySelectorAll(
+            ".party-3-city, .party-2-city, .party-1-city"
+          );
+          elementsWithPartyClass.forEach((element) => {
+            // 移除指定的 class
+            element.classList.remove("order-1", "order-2", "order-3");
+          });
+        } else if (method == "dist") {
+          element1 = document.querySelector(".party-1-dist");
+          element2 = document.querySelector(".party-2-dist");
+          element3 = document.querySelector(".party-3-dist");
+          const elementsWithPartyClass = document.querySelectorAll(
+            ".party-3-dist, .party-2-dist, .party-1-dist"
+          );
+          elementsWithPartyClass.forEach((element) => {
+            // 移除指定的 class
+            element.classList.remove("order-1", "order-2", "order-3");
+          });
+        } else if (method == "vil") {
+          element1 = document.querySelector(".party-1-vil");
+          element2 = document.querySelector(".party-2-vil");
+          element3 = document.querySelector(".party-3-vil");
+          const elementsWithPartyClass = document.querySelectorAll(
+            ".party-3-vil, .party-2-vil, .party-1-vil"
+          );
+          elementsWithPartyClass.forEach((element) => {
+            // 移除指定的 class
+            element.classList.remove("order-1", "order-2", "order-3");
+          });
+        }
+
+        if (num1 >= num2 && num2 >= num3) {
+          //123
+          element1.classList.add("order-1");
+          element2.classList.add("order-2");
+          element3.classList.add("order-3");
+        } else if (num1 >= num3 && num3 >= num2) {
+          //132
+          element1.classList.add("order-1");
+          element2.classList.add("order-3");
+          element3.classList.add("order-2");
+        } else if (num2 >= num1 && num1 >= num3) {
+          //213
+          element1.classList.add("order-2");
+          element2.classList.add("order-1");
+          element3.classList.add("order-3");
+        } else if (num2 >= num3 && num3 >= num1) {
+          //231
+          element1.classList.add("order-3");
+          element2.classList.add("order-1");
+          element3.classList.add("order-2");
+        } else if (num3 >= num1 && num1 >= num2) {
+          //312
+          element1.classList.add("order-2");
+          element2.classList.add("order-3");
+          element3.classList.add("order-1");
+        } else if (num3 >= num2 && num2 >= num1) {
+          //321
+          element1.classList.add("order-3");
+          element2.classList.add("order-2");
+          element3.classList.add("order-1");
+        }
+      }
+      function ClickMap(city) {
+        console.log(city);
+      }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="https://demeter.5fpro.com/tw/zipcode-selector.js"></script>
+  </body>
+</html>
