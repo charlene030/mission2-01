@@ -6,6 +6,7 @@
       name="description"
       content="map created using amCharts pixel map generator"
     />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link
       rel="stylesheet"
@@ -122,7 +123,7 @@
             },
             {
               id: "TW-TXG",
-              title: "台中市",
+              title: "臺中市",
               color: "#84CB98",
             },
             {
@@ -147,7 +148,7 @@
             },
             {
               id: "TW-TNN",
-              title: "台南市",
+              title: "臺南市",
               color: "#84CB98",
             },
             {
@@ -162,7 +163,7 @@
             },
             {
               id: "TW-TTT",
-              title: "台東縣",
+              title: "臺東縣",
               color: "#8894D8",
             },
             {
@@ -172,7 +173,7 @@
             },
             {
               id: "TW-KIN",
-              title: "Kinmen",
+              title: "金門縣",
               color: "#84CB98",
             },
           ],
@@ -263,11 +264,15 @@
         <select class="form-select" id="category3">
           <option selected>請選擇</option>
         </select>
-        <button onclick="FinishSelect()">搜尋</button>
-        <button onclick="clearSelect()">清除</button>
+        <div class="SearchAndClearBtn">
+          <button onclick="FinishSelect()">搜尋</button>
+          <button onclick="clearSelect()">清除</button>
+        </div>
+
+        <button class="showVote"><h6>投票概況</h6></button>
       </div>
       <div class="main-area row">
-        <div class="col-4 left">
+        <div class="col-md-4 col-sm-12 left">
           <div class="container row">
             <h5 class="col-12">投票概況</h5>
             <div class="chart-and-label col-12">
@@ -322,10 +327,10 @@
             </div>
           </div>
         </div>
-        <div class="col-4 center">
+        <div class="col-md-4 col-sm-12 center">
           <div id="map" style="width: 100%; height: 120vh"></div>
         </div>
-        <div class="col-4 right">
+        <div class="col-md-4 col-sm-12 right">
           <div class="grey-square">
             <div class="square">
               <div class="text">
@@ -342,117 +347,136 @@
               <img src="hint2.png" />
             </div>
           </div>
-
-          <div class="green-square">
-            <h6 id="green-square-city">臺北市</h6>
-            <div class="party-datas col-12 row">
-              <div class="party party-1 party-1-city" id="party-3">
-                <div class="party-number party-number1">1</div>
-                <div class="name">
-                  <div class="party-title">親民黨</div>
-                  宋楚瑜｜余湘
+          <div class="green-part">
+            <div class="green-square">
+              <h6 id="green-square-city">臺北市</h6>
+              <div class="party-datas col-12 row">
+                <div class="party party-1 party-1-city" id="party-1">
+                  <div class="party-number party-number1">1</div>
+                  <div class="name">
+                    <div class="party-title">親民黨</div>
+                    宋楚瑜｜余湘
+                  </div>
+                  <div class="voting-number">
+                    <div class="persentage" id="party1-persent">4.26 %</div>
+                    <span id="green-square-party1-vote"> 608,590 票 </span>
+                  </div>
                 </div>
-                <div class="voting-number">
-                  <div class="persentage" id="party1-persent">4.26 %</div>
-                  <span id="green-square-party1-vote"> 608,590 票 </span>
+                <div class="party party-2 party-2-city" id="party-2">
+                  <div class="party-number party-number2">2</div>
+                  <div class="name">
+                    <div class="party-title">中國國民黨</div>
+                    韓國瑜｜張善政
+                  </div>
+                  <div class="voting-number">
+                    <div class="persentage" id="party2-persent">38.61 %</div>
+                    <span id="green-square-party2-vote"> 5,522,119 票 </span>
+                  </div>
                 </div>
-              </div>
-              <div class="party party-2 party-2-city" id="party-3">
-                <div class="party-number party-number2">2</div>
-                <div class="name">
-                  <div class="party-title">中國國民黨</div>
-                  韓國瑜｜張善政
-                </div>
-                <div class="voting-number">
-                  <div class="persentage" id="party2-persent">38.61 %</div>
-                  <span id="green-square-party2-vote"> 5,522,119 票 </span>
-                </div>
-              </div>
-              <div class="party party-3 party-3-city" id="party-3">
-                <div class="party-number party-number3">3</div>
-                <div class="name">
-                  <div class="party-title">民主進步黨</div>
-                  蔡英文｜賴清德
-                </div>
-                <div class="voting-number">
-                  <div class="persentage" id="party3-persent">57.13 %</div>
-                  <span id="green-square-party3-vote"> 8,170,231 票 </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="green-square-dist">
-            <h6 id="green-square-dist">信義區</h6>
-            <div class="party-datas col-12 row">
-              <div class="party party-1 party-1-dist">
-                <div class="party-number party-number1">1</div>
-                <div class="name">
-                  <div class="party-title">親民黨</div>
-                  宋楚瑜｜余湘
-                </div>
-                <div class="voting-number">
-                  <div class="persentage" id="party1-dist-persent">4.26 %</div>
-                  <span id="green-square-party1-dist-vote"> 608,590 票 </span>
-                </div>
-              </div>
-              <div class="party party-2 party-2-dist">
-                <div class="party-number party-number2">2</div>
-                <div class="name">
-                  <div class="party-title">中國國民黨</div>
-                  韓國瑜｜張善政
-                </div>
-                <div class="voting-number">
-                  <div class="persentage" id="party2-dist-persent">38.61 %</div>
-                  <span id="green-square-party2-dist-vote"> 5,522,119 票 </span>
-                </div>
-              </div>
-              <div class="party party-3 party-3-dist">
-                <div class="party-number party-number3">3</div>
-                <div class="name">
-                  <div class="party-title">民主進步黨</div>
-                  蔡英文｜賴清德
-                </div>
-                <div class="voting-number">
-                  <div class="persentage" id="party3-dist-persent">57.13 %</div>
-                  <span id="green-square-party3-dist-vote"> 8,170,231 票 </span>
+                <div class="party party-3 party-3-city" id="party-3">
+                  <div class="party-number party-number3">3</div>
+                  <div class="name">
+                    <div class="party-title">民主進步黨</div>
+                    蔡英文｜賴清德
+                  </div>
+                  <div class="voting-number">
+                    <div class="persentage" id="party3-persent">57.13 %</div>
+                    <span id="green-square-party3-vote"> 8,170,231 票 </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="green-square-vil">
-            <h6 id="green-square-vil">仁壽里</h6>
-            <div class="party-datas col-12 row">
-              <div class="party party-1 party-1-vil">
-                <div class="party-number party-number1">1</div>
-                <div class="name">
-                  <div class="party-title">親民黨</div>
-                  宋楚瑜｜余湘
+            <div class="green-square-dist">
+              <h6 id="green-square-dist">信義區</h6>
+              <div class="party-datas col-12 row">
+                <div class="party party-1 party-1-dist">
+                  <div class="party-number party-number1">1</div>
+                  <div class="name">
+                    <div class="party-title">親民黨</div>
+                    宋楚瑜｜余湘
+                  </div>
+                  <div class="voting-number">
+                    <div class="persentage" id="party1-dist-persent">
+                      4.26 %
+                    </div>
+                    <span id="green-square-party1-dist-vote"> 608,590 票 </span>
+                  </div>
                 </div>
-                <div class="voting-number">
-                  <div class="persentage" id="party1-vil-persent">4.26 %</div>
-                  <span id="green-square-party1-vil-vote"> 608,590 票 </span>
+                <div class="party party-2 party-2-dist">
+                  <div class="party-number party-number2">2</div>
+                  <div class="name">
+                    <div class="party-title">中國國民黨</div>
+                    韓國瑜｜張善政
+                  </div>
+                  <div class="voting-number">
+                    <div class="persentage" id="party2-dist-persent">
+                      38.61 %
+                    </div>
+                    <span id="green-square-party2-dist-vote">
+                      5,522,119 票
+                    </span>
+                  </div>
+                </div>
+                <div class="party party-3 party-3-dist">
+                  <div class="party-number party-number3">3</div>
+                  <div class="name">
+                    <div class="party-title">民主進步黨</div>
+                    蔡英文｜賴清德
+                  </div>
+                  <div class="voting-number">
+                    <div class="persentage" id="party3-dist-persent">
+                      57.13 %
+                    </div>
+                    <span id="green-square-party3-dist-vote">
+                      8,170,231 票
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div class="party party-2 party-2-vil">
-                <div class="party-number party-number2">2</div>
-                <div class="name">
-                  <div class="party-title">中國國民黨</div>
-                  韓國瑜｜張善政
+            </div>
+            <div class="green-square-vil">
+              <h6 id="green-square-vil">仁壽里</h6>
+              <div class="party-datas col-12 row">
+                <div class="party party-1 party-1-vil">
+                  <div class="party-number party-number1">1</div>
+                  <div class="name">
+                    <div class="party-title">親民黨</div>
+                    宋楚瑜｜余湘
+                  </div>
+                  <div class="voting-number">
+                    <div class="persentage" id="party1-vil-persent">4.26 %</div>
+                    <span id="green-square-party1-vil-vote"> 608,590 票 </span>
+                  </div>
                 </div>
-                <div class="voting-number">
-                  <div class="persentage" id="party2-vil-persent">38.61 %</div>
-                  <span id="green-square-party2-vil-vote"> 5,522,119 票 </span>
+                <div class="party party-2 party-2-vil">
+                  <div class="party-number party-number2">2</div>
+                  <div class="name">
+                    <div class="party-title">中國國民黨</div>
+                    韓國瑜｜張善政
+                  </div>
+                  <div class="voting-number">
+                    <div class="persentage" id="party2-vil-persent">
+                      38.61 %
+                    </div>
+                    <span id="green-square-party2-vil-vote">
+                      5,522,119 票
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div class="party party-3 party-3-vil">
-                <div class="party-number party-number3">3</div>
-                <div class="name">
-                  <div class="party-title">民主進步黨</div>
-                  蔡英文｜賴清德
-                </div>
-                <div class="voting-number">
-                  <div class="persentage" id="party3-vil-persent">57.13 %</div>
-                  <span id="green-square-party3-vil-vote"> 8,170,231 票 </span>
+                <div class="party party-3 party-3-vil">
+                  <div class="party-number party-number3">3</div>
+                  <div class="name">
+                    <div class="party-title">民主進步黨</div>
+                    蔡英文｜賴清德
+                  </div>
+                  <div class="voting-number">
+                    <div class="persentage" id="party3-vil-persent">
+                      57.13 %
+                    </div>
+                    <span id="green-square-party3-vil-vote">
+                      8,170,231 票
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -738,8 +762,6 @@
                 Party3votePersent + "%";
 
               SortandOrder(Party1voteNum, Party2voteNum, Party3voteNum, "city");
-              //loadExcelDist(TaiwanTitle.replace(/\s/g, ""), ""); 應該不是在這邊load吧?
-              //console.log(TaiwanTitle, "的(1)投票數是", sheet["B" + i].v);
             }
 
             //console.log(("A", i, ":", value)[1]);
@@ -1002,7 +1024,13 @@
         }
       }
       function ClickMap(city) {
-        console.log(city);
+        // console.log(city);
+        loadExcel(city);
+        document.querySelector(".green-square").style.display = "block";
+        let sq = document.querySelectorAll(".square");
+        sq.forEach((square) => {
+          square.style.display = "none";
+        });
       }
     </script>
 
