@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+
     <title>2020總統選舉即時開票地圖</title>
     <meta
       name="description"
@@ -45,7 +47,7 @@
         color: "#FFFFFF",
         projection: "mercator",
         backgroundAlpha: 1,
-        backgroundColor: "rgba(80,80,80,1)", //之後改成#F5F5F5
+        backgroundColor: "rgba(80,80,80,0)", //之後改成#F5F5F5
         dataProvider: {
           map: "taiwanLow",
           getAreasFromMap: true,
@@ -268,66 +270,77 @@
           <button onclick="FinishSelect()">搜尋</button>
           <button onclick="clearSelect()">清除</button>
         </div>
-
-        <button class="showVote"><h6>投票概況</h6></button>
+        <div class="showVote-contain">
+          <button class="showVote" onclick="ShowVote()">
+            <h5>投票概況</h5>
+            <img src="arrow.png" />
+          </button>
+        </div>
       </div>
       <div class="main-area row">
         <div class="col-md-4 col-sm-12 left">
-          <div class="container row">
-            <h5 class="col-12">投票概況</h5>
-            <div class="chart-and-label col-12">
-              <div class="vote-chart"></div>
-              <div class="text">
-                <h6>74.9%<br />投票率</h6>
-              </div>
-            </div>
-            <div class="vote-datas col-12">
-              投票數 14,464,571票<br />
-              無效票數 163,631票<br />
-              有效票數 14,300,940票
-            </div>
-            <div class="chart-and-label col-12">
-              <div class="vote-chart2"></div>
-              <div class="text"></div>
-            </div>
-            <div class="party-datas col-12 row">
-              <div class="party party-1 order-3">
-                <div class="party-number party-number1">1</div>
-                <div class="name">
-                  <div class="party-title">親民黨</div>
-                  宋楚瑜｜余湘
+          <div class="wtf">
+            <div class="container row">
+              <h5 class="col-12">投票概況</h5>
+              <div class="boxincontainer" style="padding: 0">
+                <div class="chart-and-label col-md-12">
+                  <div class="vote-chart"></div>
+                  <div class="text">
+                    <h6>74.9%<br />投票率</h6>
+                  </div>
                 </div>
-                <div class="voting-number">
-                  <div class="persentage">4.26 %</div>
-                  608,590 票
+                <div class="vote-datas col-md-12">
+                  投票數 14,464,571票<br />
+                  無效票數 163,631票<br />
+                  有效票數 14,300,940票
                 </div>
               </div>
-              <div class="party party-2 order-2">
-                <div class="party-number party-number2">2</div>
-                <div class="name">
-                  <div class="party-title">中國國民黨</div>
-                  韓國瑜｜張善政
+              <div class="boxincontainer" style="padding: 0">
+                <div class="chart-and-label col-md-12">
+                  <div class="vote-chart2"></div>
                 </div>
-                <div class="voting-number">
-                  <div class="persentage">38.61 %</div>
-                  5,522,119 票
-                </div>
-              </div>
-              <div class="party party-3 order-1">
-                <div class="party-number party-number3">3</div>
-                <div class="name">
-                  <div class="party-title">民主進步黨</div>
-                  蔡英文｜賴清德
-                </div>
-                <div class="voting-number">
-                  <div class="persentage">57.13 %</div>
-                  8,170,231 票
+                <div class="party-datas col-md-12 row">
+                  <div class="party party-1 order-3">
+                    <div class="party-number party-number1">1</div>
+                    <div class="name">
+                      <div class="party-title">親民黨</div>
+                      宋楚瑜｜余湘
+                    </div>
+                    <div class="voting-number">
+                      <div class="persentage">4.26 %</div>
+                      608,590 票
+                    </div>
+                  </div>
+                  <div class="party party-2 order-2">
+                    <div class="party-number party-number2">2</div>
+                    <div class="name">
+                      <div class="party-title">中國國民黨</div>
+                      韓國瑜｜張善政
+                    </div>
+                    <div class="voting-number">
+                      <div class="persentage">38.61 %</div>
+                      5,522,119 票
+                    </div>
+                  </div>
+                  <div class="party party-3 order-1">
+                    <div class="party-number party-number3">3</div>
+                    <div class="name">
+                      <div class="party-title">民主進步黨</div>
+                      蔡英文｜賴清德
+                    </div>
+                    <div class="voting-number">
+                      <div class="persentage">57.13 %</div>
+                      8,170,231 票
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4 col-sm-12 center"></div>
+        <div class="col-md-4 col-sm-12 center">
+          <div id="map" style="width: 100%; height: 120vh"></div>
+        </div>
         <div class="col-md-4 col-sm-12 right">
           <div class="grey-square">
             <div class="square">
@@ -503,6 +516,7 @@
           show: false, // 將此選項設置為 false 以隱藏 legend
         },
       };
+
       var options2 = {
         series: [608590, 5522119, 8170231],
         fill: {
@@ -519,7 +533,21 @@
           show: false, // 將此選項設置為 false 以隱藏 legend
         },
       };
-
+      if (window.innerWidth <= 768) {
+        // 你可以根據實際需求調整媒體查詢的條件
+        options.chart = {
+          width: "100%",
+          type: "donut",
+        };
+        options2.chart = {
+          width: "100%",
+          type: "donut",
+        };
+        //document.querySelector(".showVote").style.display = "flex";
+      }
+      /*if (window.innerWidth > 768) {
+        document.querySelector(".showVote").style.display = "none";
+      }*/
       var chart = new ApexCharts(
         document.querySelector(".vote-chart"),
         options
@@ -610,45 +638,48 @@
 
         // 清空 category3 的選項
         category3Select.innerHTML = "";
+        const jsonFileUrl2 = `/JSON Data/03-${selectedCity}.json`;
 
-        try {
-          const response = await fetch(
-            `/dataFile/總統-A05-3-候選人得票數一覽表-各村里(${selectedCity}).xls`
-          );
-          const arrayBuffer = await response.arrayBuffer();
-          const data = new Uint8Array(arrayBuffer);
-          const workbook = XLSX.read(data, { type: "array" });
-
-          // 假設工作表的名稱是 Sheet1
-          let i = 7;
-          let j;
-          const sheetName = workbook.SheetNames[0];
-          const sheet = workbook.Sheets[sheetName];
-          console.log(sheet["A" + 171]);
-          console.log(sheet["A" + i].v);
-          console.log("selectedDist:", selectedDist);
-          while (sheet["A" + i] !== undefined) {
-            if (sheet["A" + i].v.replace(/\s/g, "") === selectedDist) {
-              //區域對到了
-              console.log("區域對到了");
-              j = i + 1;
-              category3Select.innerHTML += `
-        <option selected>請選擇</option>`;
-              while (sheet["B" + j] !== undefined && sheet["B" + j].v !== "") {
-                var option = document.createElement("option");
-                option.value = sheet["B" + j].v;
-                option.textContent = sheet["B" + j].v;
-                category3Select.appendChild(option);
-
-                //console.log(sheet["B" + j].v);
-                j++;
-              }
+        // 使用 fetch 載入 JSON 檔案
+        fetch(jsonFileUrl2)
+          .then((response) => {
+            // 檢查網路請求是否成功
+            if (!response.ok) {
+              throw new Error(
+                `Network response was not ok: ${response.statusText}`
+              );
             }
-            i++;
-          }
-        } catch (error) {
-          console.error("(在載入村里函數)Error loading Excel file:", error);
-        }
+            // 解析 JSON
+            return response.json();
+          })
+          .then((data) => {
+            // 在這裡你可以使用解析後的資料
+            category3Select.innerHTML += `
+        <option selected>請選擇</option>`;
+            let i = 0;
+            console.log("QAQ", "selectedCity=", selectedCity);
+            for (i = 0; i < data.length; i++) {
+              if (data[i].地區 !== undefined && data[i].地區 !== null) {
+                if (
+                  data[i].地區.replace(/\s/g, "") ===
+                    selectedDist.replace(/\s/g, "") &&
+                  data[i].Column2 !== undefined
+                ) {
+                  //有匹配到村里 製作選項中
+                  var option = document.createElement("option");
+                  option.value = data[i].Column2;
+                  option.textContent = data[i].Column2;
+                  category3Select.appendChild(option);
+                }
+              }
+
+              //console.log(data[i].縣市);
+            }
+          })
+          .catch((error) => {
+            // 處理錯誤
+            console.error("(03系列JSON檔)Error loading JSON:", error);
+          });
       }
 
       // 初始化時載入城市選項
@@ -693,263 +724,270 @@
         <option selected>請選擇</option>`;
       }
       async function loadExcel(TaiwanTitle) {
-        try {
-          const response = await fetch(
-            "/dataFile/總統-A05-1-候選人得票數一覽表(中　央).xls"
-          );
-          const arrayBuffer = await response.arrayBuffer();
-          const data = new Uint8Array(arrayBuffer);
-          const workbook = XLSX.read(data, { type: "array" });
+        //new try
+        const jsonFileUrl = "/JSON Data/01-中央.json";
 
-          // 假設工作表的名稱是 Sheet1
-          const sheetName = workbook.SheetNames[0];
-          const sheet = workbook.Sheets[sheetName];
-
-          // 指定單元格的位置，例如 H23 與 H27
-          //列出所有縣市
-          for (let i = 7; i <= 28; i++) {
-            let cell = sheet["A" + i];
-            let value = cell ? cell.v : undefined;
-
-            if (TaiwanTitle.replace(/\s/g, "") === value.replace(/\s/g, "")) {
-              //有匹配到縣市
-              document.getElementById("green-square-city").innerText =
-                TaiwanTitle.replace(/\s/g, "");
-
-              document.getElementById("green-square-party1-vote").innerText =
-                sheet["B" + i].v + "票";
-              document.getElementById("green-square-party2-vote").innerText =
-                sheet["C" + i].v + "票";
-              document.getElementById("green-square-party3-vote").innerText =
-                sheet["D" + i].v + "票";
-
-              //計算百分比
-              let Party1voteNum = parseInt(
-                sheet["B" + i].v.replace(/,/g, ""),
-                10
+        // 使用 fetch 載入 JSON 檔案
+        fetch(jsonFileUrl)
+          .then((response) => {
+            // 檢查網路請求是否成功
+            if (!response.ok) {
+              throw new Error(
+                `Network response was not ok: ${response.statusText}`
               );
-              let Party2voteNum = parseInt(
-                sheet["C" + i].v.replace(/,/g, ""),
-                10
-              );
-              let Party3voteNum = parseInt(
-                sheet["D" + i].v.replace(/,/g, ""),
-                10
-              );
-              let Party1votePersent = (
-                (Party1voteNum /
-                  (Party1voteNum + Party2voteNum + Party3voteNum)) *
-                100
-              ).toFixed(2);
-              let Party2votePersent = (
-                (Party2voteNum /
-                  (Party1voteNum + Party2voteNum + Party3voteNum)) *
-                100
-              ).toFixed(2);
-              let Party3votePersent = (
-                (Party3voteNum /
-                  (Party1voteNum + Party2voteNum + Party3voteNum)) *
-                100
-              ).toFixed(2);
-
-              document.getElementById("party1-persent").innerText =
-                Party1votePersent + "%";
-              document.getElementById("party2-persent").innerText =
-                Party2votePersent + "%";
-              document.getElementById("party3-persent").innerText =
-                Party3votePersent + "%";
-
-              SortandOrder(Party1voteNum, Party2voteNum, Party3voteNum, "city");
             }
+            // 解析 JSON
+            return response.json();
+          })
+          .then((data) => {
+            // 在這裡你可以使用解析後的資料
+            //console.log(data);
+            let i = 0;
+            for (i = 0; i < data.length; i++) {
+              if (
+                data[i].縣市.replace(/\s/g, "") ===
+                TaiwanTitle.replace(/\s/g, "")
+              ) {
+                //有匹配到縣市
+                document.getElementById("green-square-city").innerText =
+                  TaiwanTitle.replace(/\s/g, "");
 
-            //console.log(("A", i, ":", value)[1]);
-          }
-        } catch (error) {
-          console.error("Error loading Excel file:", error);
-        }
+                document.getElementById("green-square-party1-vote").innerText =
+                  data[i].Column2 + "票";
+                document.getElementById("green-square-party2-vote").innerText =
+                  data[i].Column3 + "票";
+                document.getElementById("green-square-party3-vote").innerText =
+                  data[i].Column4 + "票";
+                //計算百分比
+                let Party1voteNum = parseInt(
+                  data[i].Column2.replace(/,/g, ""),
+                  10
+                );
+                let Party2voteNum = parseInt(
+                  data[i].Column3.replace(/,/g, ""),
+                  10
+                );
+                let Party3voteNum = parseInt(
+                  data[i].Column4.replace(/,/g, ""),
+                  10
+                );
+                let Party1votePersent = (
+                  (Party1voteNum /
+                    (Party1voteNum + Party2voteNum + Party3voteNum)) *
+                  100
+                ).toFixed(2);
+                let Party2votePersent = (
+                  (Party2voteNum /
+                    (Party1voteNum + Party2voteNum + Party3voteNum)) *
+                  100
+                ).toFixed(2);
+                let Party3votePersent = (
+                  (Party3voteNum /
+                    (Party1voteNum + Party2voteNum + Party3voteNum)) *
+                  100
+                ).toFixed(2);
+
+                document.getElementById("party1-persent").innerText =
+                  Party1votePersent + "%";
+                document.getElementById("party2-persent").innerText =
+                  Party2votePersent + "%";
+                document.getElementById("party3-persent").innerText =
+                  Party3votePersent + "%";
+
+                SortandOrder(
+                  Party1voteNum,
+                  Party2voteNum,
+                  Party3voteNum,
+                  "city"
+                );
+              }
+              //console.log(data[i].縣市);
+            }
+          })
+          .catch((error) => {
+            // 處理錯誤
+            console.error("Error loading JSON:", error);
+          });
       }
       async function loadExcelDist(CityTitle, DistTitle, VilTitle) {
-        console.log("CityTitle:" + CityTitle);
-        console.log("DistTitle:" + DistTitle);
+        console.log("CityTitle:" + CityTitle); //XX市
+        console.log("DistTitle:" + DistTitle); //XX區
         console.log("VilTitle:" + VilTitle);
-        try {
-          const response = await fetch(
-            `/dataFile/總統-A05-2-候選人得票數一覽表(${encodeURIComponent(
-              CityTitle
-            )}).xls`
-          );
-          const arrayBuffer = await response.arrayBuffer();
-          const data = new Uint8Array(arrayBuffer);
-          const workbook = XLSX.read(data, { type: "array" });
+        const jsonFileUrl = `/JSON Data/02-${CityTitle}.json`;
 
-          // 假設工作表的名稱是 Sheet1
-          const sheetName = workbook.SheetNames[0];
-          const sheet = workbook.Sheets[sheetName];
-
-          // 指定單元格的位置，例如 H23 與 H27
-          //列出所有縣市
-          let i = 7;
-          while (sheet["A" + i] && sheet["A" + i].v !== undefined) {
-            //console.log(sheet["A" + i].v);
-            if (sheet["A" + i].v.replace(/\s/g, "") === DistTitle) {
-              //有匹配到區域
-              //console.log(DistTitle, "的(1)票數是", sheet["B" + i].v);
-              //console.log(DistTitle, "的(2)票數是", sheet["C" + i].v);
-              //console.log(DistTitle, "的(3)票數是", sheet["D" + i].v);
-              document.getElementById("green-square-dist").innerText =
-                DistTitle.replace(/\s/g, "");
-              document.getElementById(
-                "green-square-party1-dist-vote"
-              ).innerText = sheet["B" + i].v + "票";
-              document.getElementById(
-                "green-square-party2-dist-vote"
-              ).innerText = sheet["C" + i].v + "票";
-              document.getElementById(
-                "green-square-party3-dist-vote"
-              ).innerText = sheet["D" + i].v + "票";
-              //計算百分比
-              let Party1voteNumDist = parseInt(
-                sheet["B" + i].v.replace(/,/g, ""),
-                10
-              );
-              let Party2voteNumDist = parseInt(
-                sheet["C" + i].v.replace(/,/g, ""),
-                10
-              );
-              let Party3voteNumDist = parseInt(
-                sheet["D" + i].v.replace(/,/g, ""),
-                10
-              );
-              let Party1votePersent = (
-                (Party1voteNumDist /
-                  (Party1voteNumDist + Party2voteNumDist + Party3voteNumDist)) *
-                100
-              ).toFixed(2);
-              let Party2votePersent = (
-                (Party2voteNumDist /
-                  (Party1voteNumDist + Party2voteNumDist + Party3voteNumDist)) *
-                100
-              ).toFixed(2);
-              let Party3votePersent = (
-                (Party3voteNumDist /
-                  (Party1voteNumDist + Party2voteNumDist + Party3voteNumDist)) *
-                100
-              ).toFixed(2);
-
-              document.getElementById("party1-dist-persent").innerText =
-                Party1votePersent + "%";
-              document.getElementById("party2-dist-persent").innerText =
-                Party2votePersent + "%";
-              document.getElementById("party3-dist-persent").innerText =
-                Party3votePersent + "%";
-              SortandOrder(
-                Party1voteNumDist,
-                Party2voteNumDist,
-                Party3voteNumDist,
-                "dist"
+        // 使用 fetch 載入 JSON 檔案
+        fetch(jsonFileUrl)
+          .then((response) => {
+            // 檢查網路請求是否成功
+            if (!response.ok) {
+              throw new Error(
+                `Network response was not ok: ${response.statusText}`
               );
             }
-            i++;
-          }
-        } catch (error) {
-          console.error("(找Dist資料的)Error loading Excel file:", error);
-        }
+            // 解析 JSON
+            return response.json();
+          })
+          .then((data) => {
+            // 在這裡你可以使用解析後的資料
+            let i = 0;
+            for (i = 0; i < data.length; i++) {
+              if (
+                data[i].地區.replace(/\s/g, "") === DistTitle.replace(/\s/g, "")
+              ) {
+                //有匹配到地區
+                document.getElementById("green-square-dist").innerText =
+                  DistTitle.replace(/\s/g, "");
+                document.getElementById(
+                  "green-square-party1-dist-vote"
+                ).innerText = data[i].Column2 + "票";
+                document.getElementById(
+                  "green-square-party2-dist-vote"
+                ).innerText = data[i].Column3 + "票";
+                document.getElementById(
+                  "green-square-party3-dist-vote"
+                ).innerText = data[i].Column4 + "票";
+                //計算百分比
+                let Party1voteNumDist = parseInt(
+                  data[i].Column2.replace(/,/g, ""),
+                  10
+                );
+                let Party2voteNumDist = parseInt(
+                  data[i].Column3.replace(/,/g, ""),
+                  10
+                );
+                let Party3voteNumDist = parseInt(
+                  data[i].Column4.replace(/,/g, ""),
+                  10
+                );
+                let Party1votePersent = (
+                  (Party1voteNumDist /
+                    (Party1voteNumDist +
+                      Party2voteNumDist +
+                      Party3voteNumDist)) *
+                  100
+                ).toFixed(2);
+                let Party2votePersent = (
+                  (Party2voteNumDist /
+                    (Party1voteNumDist +
+                      Party2voteNumDist +
+                      Party3voteNumDist)) *
+                  100
+                ).toFixed(2);
+                let Party3votePersent = (
+                  (Party3voteNumDist /
+                    (Party1voteNumDist +
+                      Party2voteNumDist +
+                      Party3voteNumDist)) *
+                  100
+                ).toFixed(2);
+
+                document.getElementById("party1-dist-persent").innerText =
+                  Party1votePersent + "%";
+                document.getElementById("party2-dist-persent").innerText =
+                  Party2votePersent + "%";
+                document.getElementById("party3-dist-persent").innerText =
+                  Party3votePersent + "%";
+                SortandOrder(
+                  Party1voteNumDist,
+                  Party2voteNumDist,
+                  Party3voteNumDist,
+                  "dist"
+                );
+              }
+              //console.log(data[i].縣市);
+            }
+          })
+          .catch((error) => {
+            // 處理錯誤
+            console.error("(02系列JSON檔)Error loading JSON:", error);
+          });
+
         ///////////////以上為找出Dist的程式碼/////////////////
         ///////////////以下為找出Vil的程式碼/////////////////
-        try {
-          const response = await fetch(
-            `/dataFile/總統-A05-3-候選人得票數一覽表-各村里(${CityTitle}).xls`
-          );
-          const arrayBuffer = await response.arrayBuffer();
-          const data = new Uint8Array(arrayBuffer);
-          const workbook = XLSX.read(data, { type: "array" });
+        const jsonFileUrl2 = `/JSON Data/03-${CityTitle}.json`;
 
-          // 假設工作表的名稱是 Sheet1
-          i = 7;
-          let j;
-          const sheetName = workbook.SheetNames[0];
-          const sheet = workbook.Sheets[sheetName];
-
-          while (sheet["A" + i] !== undefined) {
-            if (sheet["A" + i].v.replace(/\s/g, "") === DistTitle) {
-              //區域對到了
-              j = i + 1;
-              while (sheet["B" + j] !== undefined && sheet["B" + j].v !== "") {
-                //console.log("在搜尋函數內的輸出");
-                //console.log(sheet["B" + j].v);
-                if (sheet["B" + j].v === VilTitle) {
-                  //console.log("找到囉!", sheet["B" + j].v);
-                  document.getElementById("green-square-vil").innerText =
-                    VilTitle;
-                  document.getElementById(
-                    "green-square-party1-vil-vote"
-                  ).innerText = sheet["C" + j].v + "票";
-                  document.getElementById(
-                    "green-square-party2-vil-vote"
-                  ).innerText = sheet["D" + j].v + "票";
-                  document.getElementById(
-                    "green-square-party3-vil-vote"
-                  ).innerText = sheet["E" + j].v + "票";
-                  //計算百分比
-                  let Party1voteNumVil = parseInt(
-                    sheet["C" + j].v.replace(/,/g, ""),
-                    10
-                  );
-                  let Party2voteNumVil = parseInt(
-                    sheet["D" + j].v.replace(/,/g, ""),
-                    10
-                  );
-                  let Party3voteNumVil = parseInt(
-                    sheet["E" + j].v.replace(/,/g, ""),
-                    10
-                  );
-                  let Party1votePersentVil = (
-                    (Party1voteNumVil /
-                      (Party1voteNumVil +
-                        Party2voteNumVil +
-                        Party3voteNumVil)) *
-                    100
-                  ).toFixed(2);
-                  let Party2votePersentVil = (
-                    (Party2voteNumVil /
-                      (Party1voteNumVil +
-                        Party2voteNumVil +
-                        Party3voteNumVil)) *
-                    100
-                  ).toFixed(2);
-                  let Party3votePersentVil = (
-                    (Party3voteNumVil /
-                      (Party1voteNumVil +
-                        Party2voteNumVil +
-                        Party3voteNumVil)) *
-                    100
-                  ).toFixed(2);
-
-                  document.getElementById("party1-vil-persent").innerText =
-                    Party1votePersentVil + "%";
-                  document.getElementById("party2-vil-persent").innerText =
-                    Party2votePersentVil + "%";
-                  document.getElementById("party3-vil-persent").innerText =
-                    Party3votePersentVil + "%";
-                  SortandOrder(
-                    Party1voteNumVil,
-                    Party2voteNumVil,
-                    Party3voteNumVil,
-                    "vil"
-                  );
-                }
-                j++;
-              }
+        // 使用 fetch 載入 JSON 檔案
+        fetch(jsonFileUrl2)
+          .then((response) => {
+            // 檢查網路請求是否成功
+            if (!response.ok) {
+              throw new Error(
+                `Network response was not ok: ${response.statusText}`
+              );
             }
-            /* if (sheet["A" + i].v !== "") {
-              console.log(sheet["A" + i].v.replace(/\s/g, ""));
-            }*/
+            // 解析 JSON
+            return response.json();
+          })
+          .then((data) => {
+            // 在這裡你可以使用解析後的資料
+            let i = 0;
+            for (i = 0; i < data.length; i++) {
+              if (
+                data[i].地區.replace(/\s/g, "") ===
+                  DistTitle.replace(/\s/g, "") &&
+                data[i].Column2 === VilTitle.replace(/\s/g, "")
+              ) {
+                //有匹配到地區
+                document.getElementById("green-square-vil").innerText =
+                  VilTitle;
+                document.getElementById(
+                  "green-square-party1-vil-vote"
+                ).innerText = data[i].Column3 + "票";
+                document.getElementById(
+                  "green-square-party2-vil-vote"
+                ).innerText = data[i].Column4 + "票";
+                document.getElementById(
+                  "green-square-party3-vil-vote"
+                ).innerText = data[i].Column5 + "票";
+                //計算百分比
+                let Party1voteNumVil = parseInt(
+                  data[i].Column3.replace(/,/g, ""),
+                  10
+                );
+                let Party2voteNumVil = parseInt(
+                  data[i].Column4.replace(/,/g, ""),
+                  10
+                );
+                let Party3voteNumVil = parseInt(
+                  data[i].Column5.replace(/,/g, ""),
+                  10
+                );
+                let Party1votePersentVil = (
+                  (Party1voteNumVil /
+                    (Party1voteNumVil + Party2voteNumVil + Party3voteNumVil)) *
+                  100
+                ).toFixed(2);
+                let Party2votePersentVil = (
+                  (Party2voteNumVil /
+                    (Party1voteNumVil + Party2voteNumVil + Party3voteNumVil)) *
+                  100
+                ).toFixed(2);
+                let Party3votePersentVil = (
+                  (Party3voteNumVil /
+                    (Party1voteNumVil + Party2voteNumVil + Party3voteNumVil)) *
+                  100
+                ).toFixed(2);
 
-            i++;
-          }
-        } catch (error) {
-          console.error("(找Vil資料的)Error loading Excel file:", error);
-        }
+                document.getElementById("party1-vil-persent").innerText =
+                  Party1votePersentVil + "%";
+                document.getElementById("party2-vil-persent").innerText =
+                  Party2votePersentVil + "%";
+                document.getElementById("party3-vil-persent").innerText =
+                  Party3votePersentVil + "%";
+                SortandOrder(
+                  Party1voteNumVil,
+                  Party2voteNumVil,
+                  Party3voteNumVil,
+                  "vil"
+                );
+              }
+              //console.log(data[i].縣市);
+            }
+          })
+          .catch((error) => {
+            // 處理錯誤
+            console.error("(02系列JSON檔)Error loading JSON:", error);
+          });
       }
       function SortandOrder(num1, num2, num3, method) {
         let element1, element2, element3;
@@ -1025,10 +1063,27 @@
         // console.log(city);
         loadExcel(city);
         document.querySelector(".green-square").style.display = "block";
+        document.querySelector(".green-square-dist").style.display = "none";
+        document.querySelector(".green-square-vil").style.display = "none";
         let sq = document.querySelectorAll(".square");
         sq.forEach((square) => {
           square.style.display = "none";
         });
+      }
+      let isVoteOpen = false;
+      function ShowVote() {
+        console.log("Hi there");
+        if (isVoteOpen) {
+          //close
+          console.log("close");
+          document.querySelector(".left").style.display = "none";
+          isVoteOpen = false;
+        } else {
+          //open
+          console.log("open");
+          document.querySelector(".left").style.display = "block";
+          isVoteOpen = true;
+        }
       }
     </script>
 

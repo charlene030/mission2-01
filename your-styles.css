@@ -75,6 +75,9 @@ body h6 {
   background-color: #262e49;
   margin: 16px 20px 16px 0px;
 }
+.main-page .select-area .showVote-contain {
+  display: none;
+}
 .main-page .main-area .left {
   justify-content: left;
 }
@@ -121,7 +124,6 @@ body h6 {
 }
 .main-page .main-area .left .container .party-datas .party {
   width: 100%;
-  border: 2px solid purple;
   display: flex;
   justify-content: space-between;
   padding: 0;
@@ -151,14 +153,7 @@ body h6 {
   width: 35%;
   text-align: end;
 }
-.main-page
-  .main-area
-  .left
-  .container
-  .party-datas
-  .party
-  .voting-number
-  .persentage {
+.main-page .main-area .left .container .party-datas .party .voting-number .persentage {
   font-size: 16px;
   font-weight: 600;
 }
@@ -239,20 +234,8 @@ body h6 {
   margin-top: 20px;
 }
 .main-page .main-area .right .green-square .party-datas .party .party-number,
-.main-page
-  .main-area
-  .right
-  .green-square-dist
-  .party-datas
-  .party
-  .party-number,
-.main-page
-  .main-area
-  .right
-  .green-square-vil
-  .party-datas
-  .party
-  .party-number {
+.main-page .main-area .right .green-square-dist .party-datas .party .party-number,
+.main-page .main-area .right .green-square-vil .party-datas .party .party-number {
   width: 24px;
   height: 24px;
   font-size: 12px;
@@ -269,94 +252,28 @@ body h6 {
   width: 104px;
   font-size: 12px;
 }
-.main-page
-  .main-area
-  .right
-  .green-square
-  .party-datas
-  .party
-  .name
-  .party-title,
-.main-page
-  .main-area
-  .right
-  .green-square-dist
-  .party-datas
-  .party
-  .name
-  .party-title,
-.main-page
-  .main-area
-  .right
-  .green-square-vil
-  .party-datas
-  .party
-  .name
-  .party-title {
+.main-page .main-area .right .green-square .party-datas .party .name .party-title,
+.main-page .main-area .right .green-square-dist .party-datas .party .name .party-title,
+.main-page .main-area .right .green-square-vil .party-datas .party .name .party-title {
   font-size: 16px;
   font-weight: 600;
 }
 .main-page .main-area .right .green-square .party-datas .party .voting-number,
-.main-page
-  .main-area
-  .right
-  .green-square-dist
-  .party-datas
-  .party
-  .voting-number,
-.main-page
-  .main-area
-  .right
-  .green-square-vil
-  .party-datas
-  .party
-  .voting-number {
+.main-page .main-area .right .green-square-dist .party-datas .party .voting-number,
+.main-page .main-area .right .green-square-vil .party-datas .party .voting-number {
   font-size: 12px;
   width: 35%;
   text-align: end;
 }
-.main-page
-  .main-area
-  .right
-  .green-square
-  .party-datas
-  .party
-  .voting-number
-  .persentage,
-.main-page
-  .main-area
-  .right
-  .green-square-dist
-  .party-datas
-  .party
-  .voting-number
-  .persentage,
-.main-page
-  .main-area
-  .right
-  .green-square-vil
-  .party-datas
-  .party
-  .voting-number
-  .persentage {
+.main-page .main-area .right .green-square .party-datas .party .voting-number .persentage,
+.main-page .main-area .right .green-square-dist .party-datas .party .voting-number .persentage,
+.main-page .main-area .right .green-square-vil .party-datas .party .voting-number .persentage {
   font-size: 16px;
   font-weight: 600;
 }
 .main-page .main-area .right .green-square .party-datas .party-1 .party-number1,
-.main-page
-  .main-area
-  .right
-  .green-square-dist
-  .party-datas
-  .party-1
-  .party-number1,
-.main-page
-  .main-area
-  .right
-  .green-square-vil
-  .party-datas
-  .party-1
-  .party-number1 {
+.main-page .main-area .right .green-square-dist .party-datas .party-1 .party-number1,
+.main-page .main-area .right .green-square-vil .party-datas .party-1 .party-number1 {
   background-color: #dfa175;
 }
 .main-page .main-area .right .green-square .party-datas .party-1 .name,
@@ -365,20 +282,8 @@ body h6 {
   border-right: 2px solid #dfa175;
 }
 .main-page .main-area .right .green-square .party-datas .party-2 .party-number2,
-.main-page
-  .main-area
-  .right
-  .green-square-dist
-  .party-datas
-  .party-2
-  .party-number2,
-.main-page
-  .main-area
-  .right
-  .green-square-vil
-  .party-datas
-  .party-2
-  .party-number2 {
+.main-page .main-area .right .green-square-dist .party-datas .party-2 .party-number2,
+.main-page .main-area .right .green-square-vil .party-datas .party-2 .party-number2 {
   background-color: #8894d8;
 }
 .main-page .main-area .right .green-square .party-datas .party-2 .name,
@@ -387,20 +292,8 @@ body h6 {
   border-right: 2px solid #8894d8;
 }
 .main-page .main-area .right .green-square .party-datas .party-3 .party-number3,
-.main-page
-  .main-area
-  .right
-  .green-square-dist
-  .party-datas
-  .party-3
-  .party-number3,
-.main-page
-  .main-area
-  .right
-  .green-square-vil
-  .party-datas
-  .party-3
-  .party-number3 {
+.main-page .main-area .right .green-square-dist .party-datas .party-3 .party-number3,
+.main-page .main-area .right .green-square-vil .party-datas .party-3 .party-number3 {
   background-color: #84cb98;
 }
 .main-page .main-area .right .green-square .party-datas .party-3 .name,
@@ -410,26 +303,14 @@ body h6 {
 }
 
 @media screen and (max-width: 768px) {
-  body h1 {
-    font-size: 72px;
-  }
-  body h2 {
-    font-size: 64px;
-  }
-  body h3 {
-    font-size: 56px;
-  }
-  body h4 {
-    font-size: 48px;
-  }
-  body h5 {
-    font-size: 40px;
-  }
-  body h6 {
-    font-size: 36px;
-  }
   .title {
-    height: 20vh;
+    height: auto;
+  }
+  .title h4 {
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: max-content;
   }
   .main-page .select-area {
     display: block;
@@ -448,109 +329,75 @@ body h6 {
     padding-top: 0;
     margin: 0;
   }
-  .main-page .select-area .showVote {
-    width: 100%;
-    height: 70px;
-    margin-top: 20px;
-    background-color: white;
-    color: black;
+  .main-page .select-area .showVote-contain {
+    display: block;
   }
-  .main-page .left {
-    width: 100%;
-    box-sizing: border-box;
-    border: 2px solid rgb(192, 230, 255);
-  }
-  .main-page .left .container {
-    border: 2px solid pink;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-  .main-page .left .container h5 {
-    padding: 20px;
-    height: fit-content;
-  }
-  .main-page .left .container .chart-and-label {
-    display: flex;
-    padding: 0;
-  }
-  .main-page .left .container .chart-and-label .vote-chart,
-  .main-page .left .container .chart-and-label .vote-chart2 {
-    width: 66%;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  .main-page .left .container .chart-and-label .text {
-    width: 33%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  .main-page .left .container .vote-datas {
-    font-size: 16px;
-    padding: 20px;
-  }
-  .main-page .left .container .party-datas {
-    padding: 20px;
-    padding-top: 0;
-    margin: 0;
-  }
-  .main-page .left .container .party-datas .party {
-    width: 100%;
-    border: 2px solid purple;
+  .main-page .select-area .showVote-contain .showVote {
     display: flex;
     justify-content: space-between;
-    padding: 0;
+    width: 100%;
+    height: auto;
     margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    color: black;
+    text-align: left;
   }
-  .main-page .left .container .party-datas .party .party-number {
-    width: 24px;
-    height: 24px;
-    font-size: 12px;
-    color: white;
-    border-radius: 50%;
+  .main-page .select-area .showVote-contain .showVote img {
+    width: 25px;
+  }
+  .main-page .left {
+    display: none;
+  }
+  .main-page .left h5 {
+    display: none;
+  }
+  .main-page .left .wtf {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .main-page .left .wtf .container {
+    background-color: white;
+    width: 100%;
+    border-radius: 0px 0px 8px 8px;
+  }
+  .main-page .left .wtf .container .boxincontainer {
+    display: flex;
+    justify-content: right;
+  }
+  .main-page .left .wtf .container .chart-and-label {
+    width: 50%;
+    justify-content: space-between;
+  }
+  .main-page .left .wtf .container .vote-chart {
+    width: 63% !important;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
   }
-  .main-page .left .container .party-datas .party .name {
-    width: 104px;
-    font-size: 12px;
+  .main-page .left .wtf .container .vote-chart2 {
+    width: 100% !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  .main-page .left .container .party-datas .party .name .party-title {
-    font-size: 16px;
-    font-weight: 600;
+  .main-page .left .wtf .container .text {
+    width: 35% !important;
   }
-  .main-page .left .container .party-datas .party .voting-number {
-    font-size: 12px;
-    width: 35%;
-    text-align: end;
+  .main-page .left .wtf .container .vote-datas {
+    width: 50%;
+    padding: 10px;
   }
-  .main-page .left .container .party-datas .party .voting-number .persentage {
-    font-size: 16px;
-    font-weight: 600;
+  .main-page .left .wtf .container .party-datas {
+    width: 75%;
+    padding-left: 0;
   }
-  .main-page .left .container .party-datas .party-1 .party-number1 {
-    background-color: #dfa175;
-  }
-  .main-page .left .container .party-datas .party-1 .name {
-    border-right: 2px solid #dfa175;
-  }
-  .main-page .left .container .party-datas .party-2 .party-number2 {
-    background-color: #8894d8;
-  }
-  .main-page .left .container .party-datas .party-2 .name {
-    border-right: 2px solid #8894d8;
-  }
-  .main-page .left .container .party-datas .party-3 .party-number3 {
-    background-color: #84cb98;
-  }
-  .main-page .left .container .party-datas .party-3 .name {
-    border-right: 2px solid #84cb98;
+  .main-page .left .wtf .container .party-datas .party {
+    margin-top: 5px;
   }
   .main-page .right {
     display: flex;
@@ -562,11 +409,13 @@ body h6 {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    border: 2px solid red;
+  }
+  .main-page .right .grey-square .square {
+    box-sizing: border-box;
+    border: 2px solid #f5f5f5;
   }
   .main-page .right .green-part {
     width: 100%;
-    border: 2px solid rgb(255, 166, 0);
     display: flex;
     flex-wrap: wrap;
   }
